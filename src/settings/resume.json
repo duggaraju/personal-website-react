@@ -1,56 +1,56 @@
 {
     "basics": {
-        "name": "Jo Lienhoop",
-        "label": "Computer Science student",
-        "email": "hey@jolienhoop.com",
-        "phone": "(XXX) XXX-XXXX",
-        "picture": "jl.png",
+        "name": "Prakash Duggaraju",
+        "label": "Software Engineer",
+        "email": "duggaraju@outlook.com",
+        "phone": "(425) 351-6931",
+        "picture": "pd.png",
         "x_title": "Hey, I'm",
-        "job": "CS student",
-        "description": "Hey, I'm Jo Lienhoop, a Computer Science student based in Bremen, Germany. I love all things technical. Talk soon!",
-        "summary": "based in Bremen, Germany.",
-        "keywords": "personal,website,portfolio,template,kit,jo,lienhoop,jolienhoop,computer,science,bremen,germany,react,github,linkedin,google,gitlab,telegram,material,design,ui,webapp",
-        "url": "https://jolienhoop.com",
+        "job": "Software Engineer",
+        "description": "Hey, I'm Prakash Duggaraju, a Software Engineer based in Washington, USA. Love !",
+        "summary": "based in Bellevue, Washington, USA.",
+        "keywords": "personal,website,portfolio,github,linkedin",
+        "url": "https://duggaraju.com",
         "location": {
-            "address": "XX XXXXXstreet",
-            "postalCode": "XXXXX",
-            "city": "Bremen",
-            "country": "Germany",
-            "countryCode": "DEU",
-            "region": "Bremen"
+            "address": "12722 NE 32nd St",
+            "postalCode": "98005",
+            "city": "Bellevue",
+            "country": "United States",
+            "countryCode": "US",
+            "region": "Washington"
         },
         "profiles": [
             {
                 "network": "Google",
-                "username": "hey@jolienhoop.com",
-                "url": "mailto:hey@jolienhoop.com",
+                "username": "duggaraju@gmail.com",
+                "url": "mailto:duggaraju@gmail.com",
                 "x_icon": "fab fa-google"
             },
             {
                 "network": "LinkedIn",
-                "username": "jolienhoop",
-                "url": "https://www.linkedin.com/in/jolienhoop/",
+                "username": "duggaraju",
+                "url": "https://www.linkedin.com/in/duggaraju/",
                 "x_icon": "fab fa-linkedin-in"
             },
             {
                 "network": "GitHub",
-                "username": "johoop",
-                "url": "https://github.com/JoHoop",
+                "username": "duggaraju",
+                "url": "https://github.com/duggaraju",
                 "x_icon": "fab fa-github"
             },
             {
-                "network": "GitLab",
-                "username": "joli",
-                "url": "https://gitlab.informatik.uni-bremen.de/joli",
-                "x_icon": "fab fa-gitlab"
+                "network": "Twitter",
+                "username": "duggaraju",
+                "url": "https://twitter.com/duggaraju",
+                "x_icon": "fab fa-twitter"
             }
         ]
     },
     "work": [
         {
-            "company": "Company",
-            "position": "President",
-            "website": "http://company.com",
+            "company": "Microsoft Corporation",
+            "position": "Principal Software Engineer",
+            "website": "https://microsoft.com",
             "startDate": "2013-01-01",
             "endDate": "2014-01-01",
             "summary": "Description...",
@@ -70,13 +70,11 @@
     ],
     "education": [
         {
-            "institution": "University",
-            "area": "Software Development",
-            "studyType": "Bachelor",
+            "institution": "University of Hyderabad",
+            "area": "Computer Science",
+            "studyType": "Masters",
             "startDate": "2011-01-01",
-            "endDate": "2013-01-01",
-            "gpa": "4.0",
-            "courses": ["DB1101 - Basic SQL"]
+            "endDate": "2013-01-01"
         }
     ],
     "awards": [
@@ -87,7 +85,7 @@
             "summary": "There is no spoon."
         }
     ],
-    "publications": [
+    "patents": [
         {
             "name": "Publication",
             "publisher": "Company",
@@ -101,11 +99,21 @@
             "name": "Web Development",
             "level": "Master",
             "keywords": ["HTML", "CSS", "Javascript"]
+        },
+        {
+            "name": "System Programming",
+            "level": "Master",
+            "keywords": ["C", "C++", "Rust"]
+        },
+        {
+            "name": "Cloud Development",
+            "level": "Master",
+            "keywords": ["Azure"]
         }
     ],
     "languages": [
         {
-            "language": "German",
+            "language": "Telugu",
             "fluency": "Native speaker"
         },
         {
@@ -113,20 +121,16 @@
             "fluency": "Fluent speaker"
         },
         {
-            "language": "French",
+            "language": "Sanskrit",
             "fluency": "Good knowledge"
         }
     ],
     "interests": [
         {
-            "name": "Wildlife",
-            "keywords": ["Ferrets", "Unicorns"]
+            "name": "Volunteering",
+            "keywords": ["Service", "Humanity"]
         }
     ],
     "references": [
-        {
-            "name": "Jane Doe",
-            "reference": "Reference..."
-        }
     ]
 }
