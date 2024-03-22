@@ -2,36 +2,66 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    svgHover: {
-        fill: theme.palette.foreground.default,
-        "&:hover": {
-            fill: theme.palette.primary.main,
-        },
-        transition: "all 0.5s ease",
+  svgHover: {
+    fill: theme.palette.foreground.default,
+    "&:hover": {
+      fill: theme.palette.primary.main,
     },
+    transition: "all 0.5s ease",
+  },
 }));
 
 export const Logo = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 400 400"
-            className={classes.svgHover}
+  return (
+    <svg
+      id="eGQCT6Yf9pz1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 300 300"
+      shapeRendering="geometricPrecision"
+      textRendering="geometricPrecision"
+    >
+      <defs>
+        <radialGradient
+          id="eGQCT6Yf9pz2-fill"
+          cx="0"
+          cy="0"
+          r="0.5"
+          spreadMethod="pad"
+          gradientUnits="objectBoundingBox"
+          gradientTransform="translate(0.5 0.5)"
         >
-            <path
-                d="M300,250a50,50,0,0,1-100,.78H150a100,100,0,0,0,200,0h0V76.85a198.63,198.63,0,0,0-50-20.52Z"
-                transform="translate(-50 -50)"
-            />
-            <path
-                d="M400,382.13a199.13,199.13,0,0,0,50-131.35h0c0-.26,0-.52,0-.78a199.11,199.11,0,0,0-50-132.11V250c0,82.71-67.29,150-150,150S100,332.71,100,250s67.29-150,150-150V50C139.72,50,50,139.72,50,250s89.72,200,200,200a199.56,199.56,0,0,0,150-67.87Z"
-                transform="translate(-50 -50)"
-            />
-            <path
-                d="M100,249.22h0V250C100,249.74,100,249.48,100,249.22Z"
-                transform="translate(-50 -50)"
-            />
-        </svg>
-    );
+          <stop id="eGQCT6Yf9pz2-fill-0" offset="0%" stopColor="#126c7c" />
+          <stop id="eGQCT6Yf9pz2-fill-1" offset="100%" stopColor="#ed9383" />
+        </radialGradient>
+      </defs>
+      <text
+        dx="0"
+        dy="0"
+        fontFamily='"Open Sans"'
+        fontSize="128"
+        fontWeight="600"
+        fontStyle="italic"
+        transform="matrix(1.733248 0 0 1.668823 8.814286 232.357116)"
+        fill="url(#eGQCT6Yf9pz2-fill)"
+        strokeWidth="0"
+      >
+        <tspan y="0" fontWeight="600" strokeWidth="0">
+          PD
+        </tspan>
+      </text>
+      <text
+        dx="0"
+        dy="0"
+        fontFamily='"Roboto"'
+        fontSize="15"
+        fontWeight="400"
+        transform="translate(106.058242 139.365575)"
+        strokeWidth="0"
+      >
+        <tspan y="0" fontWeight="400" strokeWidth="0"></tspan>
+      </text>
+    </svg>
+  );
 };

@@ -6,11 +6,11 @@
         "phone": "(425) 351-6931",
         "picture": "pd.png",
         "x_title": "Hey, I'm",
-        "job": "Software Engineer",
+        "job": "Software Engineer and Video Developer",
         "description": "Hey, I'm Prakash Duggaraju, a Software Engineer based in Washington, USA. Love !",
         "summary": "based in Bellevue, Washington, USA.",
         "keywords": "personal,website,portfolio,github,linkedin",
-        "url": "https://duggaraju.com",
+        "url": "/resume",
         "location": {
             "address": "12722 NE 32nd St",
             "postalCode": "98005",
@@ -19,6 +19,20 @@
             "countryCode": "US",
             "region": "Washington"
         },
+        "contacts": [
+            {
+                "type": "email",
+                "value": "duggaraju@gmail.com"
+            },
+            {
+                "type": "phone",
+                "value": "+1 (425) 351 6931"
+            },
+            {
+                "type": "location",
+                "value": "Seattle"
+            }
+        ],
         "profiles": [
             {
                 "network": "Google",
@@ -46,91 +60,190 @@
             }
         ]
     },
-    "work": [
-        {
-            "company": "Microsoft Corporation",
-            "position": "Principal Software Engineer",
-            "website": "https://microsoft.com",
-            "startDate": "2013-01-01",
-            "endDate": "2014-01-01",
-            "summary": "Description...",
-            "highlights": ["Started the company"]
-        }
-    ],
-    "volunteer": [
-        {
-            "organization": "Organization",
-            "position": "Volunteer",
-            "website": "http://organization.com/",
-            "startDate": "2012-01-01",
-            "endDate": "2013-01-01",
-            "summary": "Description...",
-            "highlights": ["Awarded 'Volunteer of the Month'"]
-        }
-    ],
-    "education": [
-        {
-            "institution": "University of Hyderabad",
-            "area": "Computer Science",
-            "studyType": "Masters",
-            "startDate": "2011-01-01",
-            "endDate": "2013-01-01"
-        }
-    ],
-    "awards": [
-        {
-            "title": "Award",
-            "date": "2014-11-01",
-            "awarder": "Company",
-            "summary": "There is no spoon."
-        }
-    ],
-    "patents": [
-        {
-            "name": "Publication",
-            "publisher": "Company",
-            "releaseDate": "2014-10-01",
-            "website": "http://publication.com",
-            "summary": "Description..."
-        }
-    ],
-    "skills": [
-        {
-            "name": "Web Development",
-            "level": "Master",
-            "keywords": ["HTML", "CSS", "Javascript"]
-        },
-        {
-            "name": "System Programming",
-            "level": "Master",
-            "keywords": ["C", "C++", "Rust"]
-        },
-        {
-            "name": "Cloud Development",
-            "level": "Master",
-            "keywords": ["Azure"]
-        }
-    ],
-    "languages": [
-        {
-            "language": "Telugu",
-            "fluency": "Native speaker"
-        },
-        {
-            "language": "English",
-            "fluency": "Fluent speaker"
-        },
-        {
-            "language": "Sanskrit",
-            "fluency": "Good knowledge"
-        }
-    ],
-    "interests": [
-        {
-            "name": "Volunteering",
-            "keywords": ["Service", "Humanity"]
-        }
-    ],
-    "references": [
-    ]
+    "profile": {
+        "type": "text",
+        "icon": "usertie",
+        "title": "Profile",
+        "content": "A vidoe enginner and a full stack developer from Seattle, US.  Love learning new skills and solving interesting problems in building scalable distributed systems. Having fun doing it and at the same time hoping to make the world a better place"
+    },
+    "experience": {
+        "type": "projects-list",
+        "title": "Experience",
+        "icon": "cubes",
+        "groups": [
+            {
+                "sectionHeader": "Microsoft Corporation",
+                "description": " Principal Software Engineer (2005 - Present)",
+                "company": "Microsoft Corporation",
+                "position": "Principal Software Engineer",
+                "website": "https://microsoft.com",
+                "startDate": "2013-01-01",
+                "endDate": "2014-01-01",
+                "summary": "Description...",
+                "highlights": [
+                    "Started the company"
+                ],
+                "items": [
+                    {
+                        "title": "Microsoft Content Integrity",
+                        "projectUrl": "https://contentintegrity.microsoft.com",
+                        "description": "It is an implementation of the Coalition for Content Provenance and Authenticity [c2pa](https://c2pa.org) specification providing ability to verify as well as sign contents for authenticity"
+                    },
+                    {
+                        "title": "Azure Media Services",
+                        "projectUrl": "https://azure.microsoft.com/en-us/products/media-services/",
+                        "description": "Azure Media Services offers broadcast-quality video streaming services to reach larger audiences on today’s most popular mobile devices. With features that enhance accessibility, distribution, and scalability, Media Services makes it easy and cost-effective to stream your content to audiences both locally and worldwide, all while protecting your content."
+                    },
+                    {
+                        "title": "Azure Video Analyzer",
+                        "projectUrl": "https://learn.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/",
+                        "description": "Azure Video Analyzer, helps developers quickly build an AI-powered video analytics solution to extract actionable insights from videos. Organizations can enhance workplace safety, in-store experiences, digital asset management, media archives, and more by understanding audio and visual video content without video or ML expertise."
+                    },
+                    {
+                        "title": "IIS Media Services",
+                        "projectUrl": "https://www.iis.net/media",
+                        "description": "IIS Media Services, is an integrated HTTP-based media delivery platform, delivers HD live and on-demand streaming, DVR functionality, to computers, TVs, and mobile devices. By offering a complete multi-format media delivery platform and a proven web server, highly immersive websites can be managed from a single web platform."
+                    },
+                    {
+                        "title": "Windows Media Services",
+                        "projectUrl": "https://en.wikipedia.org/wiki/Windows_Media_Services",
+                        "description": "Microsoft Windows Media Services is an industrial-strength platform for streaming live or on-demand audio and video content over the Internet or an intranet. Windows Media Services is used to configure and manage one or more Windows Media servers that deliver your content to clients."
+                    }
+                ]
+            },
+            {
+                "sectionHeader": "Oracle India Pvt. Ltd",
+                "description": " Project Lead (1999 - 2005)",
+                "company": "Oracle India Pvt. Ltd.",
+                "position": "Project Lead",
+                "website": "https://oracle.com",
+                "startDate": "1999-02-01",
+                "endDate": "2005-08-01",
+                "summary": "Description...",
+                "items":[
+                    {
+                        "title": "Oracle Discoverer",
+                        "projectUrl": "https://www.oracle.com/technology/products/discoverer/index.html",
+                        "description": "Oracle Discoverer is an intuitive ad-hoc query, reporting, analysis, and Web-publishing tool that empower business users to gain immediate access to information. It enables report builders and analysts to create, modify, and execute ad hoc queries and reports. More casual users can view and navigate through pre-defined reports and graphs. Discoverer provides a business view to hide the complexity of the underlying data structure. It enables you to focus on solving business problems and brings insight to your data."
+                    }
+                ]
+            }
+        ]
+    },
+    "education": {
+        "type": "experiences-list",
+        "title": "Education",
+        "icon": "graduation",
+        "description": "",
+        "items": [
+            {
+                "title": "M.Tech Computer Science",
+                "authority": "University of Hyderabad",
+                "authorityWebSite": "https://uohyd.ac.in",
+                "rightSide": "1997-99",
+                "institution": "University of Hyderabad",
+                "area": "Computer Science",
+                "studyType": "Masters",
+                "startDate": "2011-01-01",
+                "endDate": "2013-01-01"
+            }
+        ]
+    },
+    "skills": {
+        "type": "tag-list",
+        "title": "Skills",
+        "icon": "book",
+        "description": "",
+        "items": [
+            "C",
+            "C++",
+            "C#",
+            "Rust",
+            "Azure",
+            "JavaScript/TypeScript",
+            "Full Stack Development",
+            "Linux",
+            "Containers",
+            "Cloud Native Development"            
+        ]
+    },
+    "languages": {
+        "type": "tag-list",
+        "title": "Languages",
+        "icon": "language",
+        "description": "Languages spoken",
+        "items": [
+            "English",
+            "Telugu",
+            "Sanskrit"
+        ]
+    },
+    "interests": {
+        "type": "tag-list",
+        "title": "Interests",
+        "icon": "book",
+        "description": "",
+        "items": [
+            "Volunteering",
+            "Open Source",
+            "Video",
+            "Streaming"
+        ]
+    },
+    "patents": {
+        "type": "common-list",
+        "title": "Patents",
+        "icon": "book",
+        "description": "Patents held",
+        "items": [
+            {
+                "title": "Integrating continuous and sparse streaming data",
+                "authority": "US-9438861-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9438861",
+                "rightSide": "2016"
+            },
+            {
+                "title": "Program identifier based recording",
+                "authority": "US-9420217-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9420217",
+                "rightSide": "2016"
+            },
+            {
+                "title": "Low latency cacheable media streaming",
+                "authority": "US-9237387-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8392748",
+                "rightSide": "2016"
+            },
+            {
+                "title": "Program Identifier based Recording",
+                "authority": "US-20140050459-A1",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20140050459",
+                "rightSide": "2014"
+            },
+            {
+                "title": "Delivering cacheable streaming media presentations",
+                "authority": "US-8909806-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9237387",
+                "rightSide": "2014"
+            },
+            {
+                "title": "Reliable media streaming",
+                "authority": "US-8392748-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8392748",
+                "rightSide": "2013"
+            },
+            {
+                "title": "Smooth streaming client component",
+                "authority": "US-8555163-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8555163",
+                "rightSide": "2013"
+            },
+            {
+                "title": "Smooth, stateless client media streaming",
+                "authority": "US-8621044-B2",
+                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8621044",
+                "rightSide": "2013"
+            }
+        ]
+    }
 }
