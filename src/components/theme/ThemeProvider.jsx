@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 import { LightTheme, DarkTheme } from "./Themes";
-import { MuiThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider as MuiThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 
 export const ThemeContext = createContext();
 
@@ -44,11 +44,13 @@ export const ThemeProvider = ({ children }) => {
                 toggleTheme,
             }}
         >
-            <MuiThemeProvider
-                theme={theme === "light" ? LightTheme : DarkTheme}
-            >
-                {children}
-            </MuiThemeProvider>
+            <StyledEngineProvider injectFirst>
+                <MuiThemeProvider
+                    theme={theme === "light" ? LightTheme : DarkTheme}
+                >
+                    {children}
+                </MuiThemeProvider>
+            </StyledEngineProvider>
         </ThemeContext.Provider>
     );
 };

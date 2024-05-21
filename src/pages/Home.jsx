@@ -1,8 +1,8 @@
 import React from 'react';
 import { LogoLink } from '../components/logo/LogoLink';
 import { Content } from '../components/content/Content';
-import { Hidden } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Hidden } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import DisplacementSphere from '../components/background/DisplacementSphere';
 import { ThemeToggle } from '../components/theme/ThemeToggle';
 import { SocialIcons } from '../components/content/SocialIcons';
@@ -21,18 +21,18 @@ export const Home = () => {
 
   return (
     <>
-      <div className={classes.root}>
-        <DisplacementSphere />
-        <LogoLink />
-        <Content />
-        <ThemeToggle />
-        <Hidden smDown>
-          <SocialIcons />
-        </Hidden>
-        <Hidden mdUp>
-          <SpeedDials />
-        </Hidden>
-      </div>
-    </>
+    <div className={classes.root}>
+      <DisplacementSphere />
+      <LogoLink />
+      <Content />
+      <ThemeToggle />
+      <Hidden lgDown>
+        <SocialIcons />
+      </Hidden>
+      <Hidden mdUp>
+        <SpeedDials />
+      </Hidden>
+    </div>
+  </>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Typography, Container } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
 import { TextDecrypt } from "./TextDecrypt";
 import Resume from "../../settings/resume.json";
 import { FirstName } from "../../utils/getName";
