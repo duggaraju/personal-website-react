@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetMeta } from "./HelmetMeta";
 import { ThemeProvider } from "../components/theme/ThemeProvider";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline } from "@mui/material";
 import { logCredits } from "../utils/logCredits";
 
 import { Home } from "../pages/Home";
@@ -20,11 +20,11 @@ export const App = () => {
       <Router>
         <Suspense fallback={<>Loading...</>}>
           <HelmetMeta />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/resume" component={Resume} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </Suspense>
       </Router>
     </ThemeProvider>

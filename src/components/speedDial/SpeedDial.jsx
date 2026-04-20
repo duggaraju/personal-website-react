@@ -1,21 +1,10 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { SpeedDial, SpeedDialIcon, SpeedDialAction } from "@material-ui/lab";
+import { SpeedDial, SpeedDialIcon, SpeedDialAction } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Resume from "../../settings/resume.json";
 
-const useStyles = makeStyles((theme) => ({
-    speedDial: {
-        position: "absolute",
-        top: theme.spacing(6),
-        right: theme.spacing(6),
-    },
-    iconColor: {
-        color: theme.palette.foreground.default,
-    },
-}));
-
 export const SpeedDials = () => {
-    const classes = useStyles();
+    const theme = useTheme();
 
     const [open, setOpen] = React.useState(false);
 
@@ -30,14 +19,15 @@ export const SpeedDials = () => {
     const actionIcons = Resume.basics.profiles.map((action) => (
         <SpeedDialAction
             key={action.network.toLowerCase()}
-            icon={<i className={`${action.x_icon} ${classes.iconColor}`}></i>}
+            icon={<i className={action.x_icon} style={{ color: theme.palette.foreground.default }}></i>}
             tooltipTitle={action.network}
             onClick={handleClose}
-            href={action.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="none"
-            color="inherit"
+            FabProps={{
+                component: "a",
+                href: action.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+            }}
         />
     ));
 
@@ -45,13 +35,17 @@ export const SpeedDials = () => {
         <>
             <SpeedDial
                 ariaLabel="SpeedDial"
-                className={classes.speedDial}
                 hidden={false}
                 icon={<SpeedDialIcon />}
                 onClose={handleClose}
                 onOpen={handleOpen}
                 open={open}
                 direction="down"
+                sx={(muiTheme) => ({
+                    position: "absolute",
+                    top: muiTheme.spacing(6),
+                    right: muiTheme.spacing(6),
+                })}
             >
                 {actionIcons}
             </SpeedDial>

@@ -1,16 +1,27 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React, { useEffect } from "react";
 import Resume from "../settings/resume.json";
 import Settings from "../settings/settings.json";
 
 export const HelmetMeta = () => {
-    return (
-        <Helmet>
-            <meta name="theme-color" content={Settings.colors.primary} />
-            <title>{Resume.basics.name} | {Resume.basics.location.city}, {Resume.basics.location.country}</title>
-            <meta name="author" content={Resume.basics.name} />
-            <meta name="description" content={Resume.basics.description} />
-            <meta name="keywords" content={Resume.basics.keywords} />
-        </Helmet>
-    );
+    useEffect(() => {
+        const setMeta = (name, content) => {
+            if (!content) return;
+            let tag = document.querySelector(`meta[name="${name}"]`);
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute("name", name);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute("content", content);
+        };
+
+        const title = `${Resume.basics.name} | ${Resume.basics.location.city}, ${Resume.basics.location.country}`;
+        document.title = title;
+        setMeta("theme-color", Settings.colors.primary);
+        setMeta("author", Resume.basics.name);
+        setMeta("description", Resume.basics.description);
+        setMeta("keywords", Resume.basics.keywords);
+    }, []);
+
+    return null;
 };

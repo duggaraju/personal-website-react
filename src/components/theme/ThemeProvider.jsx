@@ -1,6 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 import { LightTheme, DarkTheme } from "./Themes";
-import { MuiThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 
 export const ThemeContext = createContext();
 

@@ -14,7 +14,7 @@ import {
     SphereBufferGeometry,
     Mesh,
 } from "three";
-import { spring, value } from "popmotion";
+import { animate } from "popmotion";
 import innerHeight from "ios-inner-height";
 import vertShader from "./sphereVertShader";
 import fragShader from "./sphereFragShader";
@@ -43,8 +43,9 @@ const DisplacementSphere = (props) => {
     const material = useRef();
     const geometry = useRef();
     const sphere = useRef();
-    const tweenRef = useRef();
-    const sphereSpring = useRef();
+    const tweenRef = useRef([]);
+    const rotationX = useRef(0);
+    const rotationY = useRef(0);
     const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false); //disabled until switching themes fixed
     const isInViewport = useInViewport(canvasRef);
 
@@ -88,6 +89,8 @@ const DisplacementSphere = (props) => {
         sphere.current = new Mesh(geometry.current, material.current);
         sphere.current.position.z = 0;
         sphere.current.modifier = Math.random();
+        rotationX.current = sphere.current.rotation.x;
+        rotationY.current = sphere.current.rotation.y;
         scene.current.add(sphere.current);
 
         return () => {
@@ -155,6 +158,11 @@ const DisplacementSphere = (props) => {
     }, [prefersReducedMotion]);
 
     useEffect(() => {
+        const stopTweens = () => {
+            tweenRef.current.forEach((tween) => tween.stop());
+            tweenRef.current = [];
+        };
+
         const onMouseMove = (event) => {
             const { rotation } = sphere.current;
 
@@ -163,25 +171,44 @@ const DisplacementSphere = (props) => {
                 y: event.clientY / window.innerHeight,
             };
 
-            if (!sphereSpring.current) {
-                sphereSpring.current = value(rotation.toArray(), (values) =>
-                    rotation.set(
-                        values[0],
-                        values[1],
-                        sphere.current.rotation.z
-                    )
-                );
-            }
+            stopTweens();
 
-            tweenRef.current = spring({
-                from: sphereSpring.current.get(),
-                to: [position.y / 2, position.x / 2],
-                stiffness: 30,
-                damping: 20,
-                velocity: sphereSpring.current.getVelocity(),
-                mass: 2,
-                restSpeed: 0.0001,
-            }).start(sphereSpring.current);
+            tweenRef.current = [
+                animate({
+                    type: "spring",
+                    from: rotationX.current,
+                    to: position.y / 2,
+                    stiffness: 30,
+                    damping: 20,
+                    mass: 2,
+                    restSpeed: 0.0001,
+                    onUpdate: (latest) => {
+                        rotationX.current = latest;
+                        rotation.set(
+                            rotationX.current,
+                            rotationY.current,
+                            sphere.current.rotation.z
+                        );
+                    },
+                }),
+                animate({
+                    type: "spring",
+                    from: rotationY.current,
+                    to: position.x / 2,
+                    stiffness: 30,
+                    damping: 20,
+                    mass: 2,
+                    restSpeed: 0.0001,
+                    onUpdate: (latest) => {
+                        rotationY.current = latest;
+                        rotation.set(
+                            rotationX.current,
+                            rotationY.current,
+                            sphere.current.rotation.z
+                        );
+                    },
+                }),
+            ];
         };
 
         if (!prefersReducedMotion && isInViewport) {
@@ -190,10 +217,7 @@ const DisplacementSphere = (props) => {
 
         return () => {
             window.removeEventListener("mousemove", onMouseMove);
-
-            if (tweenRef.current) {
-                tweenRef.current.stop();
-            }
+            stopTweens();
         };
     }, [isInViewport, prefersReducedMotion]);
 
@@ -224,7 +248,13 @@ const DisplacementSphere = (props) => {
     }, [isInViewport, prefersReducedMotion]);
 
     return (
-        <Transition appear in onEnter={reflow} timeout={3000}>
+        <Transition
+            appear
+            in
+            nodeRef={canvasRef}
+            onEnter={() => reflow(canvasRef.current)}
+            timeout={3000}
+        >
             {(status) => (
                 <canvas
                     aria-hidden

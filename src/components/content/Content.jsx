@@ -1,25 +1,22 @@
 import React from "react";
-import { Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Typography, Container } from "@mui/material";
 import { TextDecrypt } from "./TextDecrypt";
 import Resume from "../../settings/resume.json";
 import { FirstName } from "../../utils/getName";
 
-const useStyles = makeStyles((theme) => ({
-    main: {
-        marginTop: "auto",
-        marginBottom: "auto",
-        "@media (max-width: 768px)": {
-            marginLeft: theme.spacing(4),
-        },
-    },
-}));
-
 export const Content = () => {
-    const classes = useStyles();
-
     return (
-        <Container component="main" className={`${classes.main}`} maxWidth="sm">
+        <Container
+            component="main"
+            maxWidth="sm"
+            sx={(muiTheme) => ({
+                marginTop: "auto",
+                marginBottom: "auto",
+                [muiTheme.breakpoints.down("md")]: {
+                    marginLeft: muiTheme.spacing(4),
+                },
+            })}
+        >
             <Typography variant="h2" component="h1" gutterBottom>
                 <TextDecrypt text={`${Resume.basics.x_title} ${FirstName}`} />
             </Typography>

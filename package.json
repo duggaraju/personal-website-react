@@ -7,20 +7,19 @@
     "author": "Prakash Duggaraju <duggaraju@gmail.com>",
     "license": "MIT",
     "dependencies": {
-        "@material-ui/core": "^4.12.4",
-        "@material-ui/icons": "^4.11.3",
-        "@material-ui/lab": "^4.0.0-alpha.61",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.1",
+        "@mui/icons-material": "^9.0.0",
+        "@mui/material": "^9.0.0",
+        "@testing-library/jest-dom": "^6.4.2",
+        "@testing-library/react": "^16.0.1",
+        "@testing-library/user-event": "^14.6.1",
         "classnames": "^2.2.6",
         "ios-inner-height": "^1.1.1",
-        "popmotion": "^8.7.3",
-        "react": "^17.0.0",
-        "react-cv": "^1.6.0",
-        "react-dom": "^17.0.0",
-        "react-helmet": "^6.1.0",
-        "react-router-dom": "^5.2.0",
+        "popmotion": "^11.0.5",
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0",
+        "react-router-dom": "^7.14.1",
         "react-transition-group": "^4.4.5",
         "three": "^0.125.0",
         "use-dencrypt-effect": "2.0.0"
@@ -47,8 +46,8 @@
         ]
     },
     "devDependencies": {
-        "@vitejs/plugin-react": "^4.2.1",
-        "vite": "^5.1.6"
+        "@vitejs/plugin-react": "^6.0.1",
+        "vite": "^8.0.9"
     },
     "engines": {
         "node": ">=20.0.0"

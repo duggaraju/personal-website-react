@@ -8,7 +8,7 @@
         "x_title": "Hey, I'm",
         "job": "Software Engineer and Video Developer",
         "description": "Hey, I'm Prakash Duggaraju, a Software Engineer based in Washington, USA. Love !",
-        "summary": "based in Bellevue, Washington, USA.",
+        "summary": "",
         "keywords": "personal,website,portfolio,github,linkedin",
         "url": "/resume",
         "location": {
@@ -164,7 +164,7 @@
             "Full Stack Development",
             "Linux",
             "Containers",
-            "Cloud Native Development"            
+            "Cloud Native Development"
         ]
     },
     "languages": {
