@@ -12,7 +12,7 @@
 // https://github.com/ashima/webgl-noise
 //
 
-const svg = `
+const noiseFunctions = `
 vec3 mod289(vec3 x)
 {
   return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -187,30 +187,17 @@ float turbulence(vec3 p) {
   return t;
 }
 
-// START
 uniform float time;
-varying vec2 vUv;
-varying vec3 vNormal;
+varying vec2 sphereUv;
 varying float noise;
-
-varying vec3 vViewPosition;
-
-void main() {
-  #include <beginnormal_vertex>
-  #include <defaultnormal_vertex>
-  #include <begin_vertex>
-  #include <project_vertex>
-  #ifndef FLAT_SHADED // Normal computed with derivatives when FLAT_SHADED
-    vNormal = normalize(transformedNormal);
-  #endif
-
-  vViewPosition = - mvPosition.xyz;
-
-  vUv = uv;
-
-  noise = turbulence(0.01 * position + normal + time * 0.8);
-  vec3 displacement = vec3((position.x) * noise, position.y * noise, position.z * noise);
-  gl_Position = projectionMatrix * modelViewMatrix * vec4((position + normal) + displacement, 1.0);
-}
 `;
-export default svg;
+
+export default (shader) => shader
+  .replace('#include <common>', `#include <common>\n${noiseFunctions}`)
+  .replace('#include <project_vertex>', `
+    #include <project_vertex>
+    sphereUv = uv;
+    noise = turbulence(0.01 * position + normal + time * 0.8);
+    vec3 displacement = position * noise;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4((position + normal) + displacement, 1.0);
+  `);

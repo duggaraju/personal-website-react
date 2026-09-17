@@ -1,17 +1,15 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import classNames from "classnames";
 import {
     Vector2,
-    sRGBEncoding,
+    SRGBColorSpace,
     WebGLRenderer,
     PerspectiveCamera,
     Scene,
     DirectionalLight,
     AmbientLight,
-    UniformsUtils,
-    UniformsLib,
     MeshPhongMaterial,
-    SphereBufferGeometry,
+    SphereGeometry,
     Mesh,
 } from "three";
 import { animate } from "popmotion";
@@ -27,7 +25,7 @@ import { cleanScene, removeLights, cleanRenderer } from "../../utils/three";
 import "./DisplacementSphere.css";
 import { ThemeContext } from "../theme/ThemeProvider";
 
-const DisplacementSphere = (props) => {
+const AnimatedSphere = ({ onUnavailable, ...props }) => {
     const { theme } = useContext(ThemeContext);
     const rgbBackground = theme === "light" ? "250 250 250" : "17 17 17";
     const width = useRef(window.innerWidth);
@@ -46,18 +44,34 @@ const DisplacementSphere = (props) => {
     const tweenRef = useRef([]);
     const rotationX = useRef(0);
     const rotationY = useRef(0);
-    const prefersReducedMotion = Boolean(usePrefersReducedMotion() && false); //disabled until switching themes fixed
     const isInViewport = useInViewport(canvasRef);
 
     useEffect(() => {
         mouse.current = new Vector2(0.8, 0.5);
-        renderer.current = new WebGLRenderer({
-            canvas: canvasRef.current,
-            powerPreference: "high-performance",
-        });
+        const canvas = canvasRef.current;
+        try {
+            const context = canvas.getContext("webgl2", { powerPreference: "high-performance" });
+            if (!context) {
+                onUnavailable(true);
+                return;
+            }
+            renderer.current = new WebGLRenderer({
+                canvas,
+                context,
+                powerPreference: "high-performance",
+            });
+        } catch {
+            onUnavailable(true);
+            return;
+        }
+        const handleContextLost = (event) => {
+            event.preventDefault();
+            onUnavailable(true);
+        };
+        canvas.addEventListener("webglcontextlost", handleContextLost);
         renderer.current.setSize(width.current, height.current);
         renderer.current.setPixelRatio(1);
-        renderer.current.outputEncoding = sRGBEncoding;
+        renderer.current.outputColorSpace = SRGBColorSpace;
 
         camera.current = new PerspectiveCamera(
             55,
@@ -71,20 +85,13 @@ const DisplacementSphere = (props) => {
 
         material.current = new MeshPhongMaterial();
         material.current.onBeforeCompile = (shader) => {
-            uniforms.current = UniformsUtils.merge([
-                UniformsLib["ambient"],
-                UniformsLib["lights"],
-                shader.uniforms,
-                { time: { type: "f", value: 0 } },
-            ]);
-
-            shader.uniforms = uniforms.current;
-            shader.vertexShader = vertShader;
-            shader.fragmentShader = fragShader;
-            shader.lights = true;
+            shader.uniforms.time = { value: 0 };
+            uniforms.current = shader.uniforms;
+            shader.vertexShader = vertShader(shader.vertexShader);
+            shader.fragmentShader = fragShader(shader.fragmentShader);
         };
 
-        geometry.current = new SphereBufferGeometry(32, 128, 128);
+        geometry.current = new SphereGeometry(32, 128, 128);
 
         sphere.current = new Mesh(geometry.current, material.current);
         sphere.current.position.z = 0;
@@ -94,19 +101,21 @@ const DisplacementSphere = (props) => {
         scene.current.add(sphere.current);
 
         return () => {
+            canvas.removeEventListener("webglcontextlost", handleContextLost);
             cleanScene(scene.current);
             cleanRenderer(renderer.current);
         };
     }, []);
 
     useEffect(() => {
+        if (!renderer.current) return;
         const dirLight = new DirectionalLight(
             rgbToThreeColor("250 250 250"),
-            0.6
+            0.6 * Math.PI
         );
         const ambientLight = new AmbientLight(
             rgbToThreeColor("250 250 250"),
-            theme === "light" ? 0.8 : 0.1
+            (theme === "light" ? 0.8 : 0.1) * Math.PI
         );
 
         dirLight.position.z = 200;
@@ -114,7 +123,7 @@ const DisplacementSphere = (props) => {
         dirLight.position.y = 100;
 
         lights.current = [dirLight, ambientLight];
-        scene.current.background = rgbToThreeColor(rgbBackground);
+        scene.current.background = rgbToThreeColor(rgbBackground).convertSRGBToLinear();
         lights.current.forEach((light) => scene.current.add(light));
 
         return () => {
@@ -123,6 +132,7 @@ const DisplacementSphere = (props) => {
     }, [rgbBackground, theme]);
 
     useEffect(() => {
+        if (!renderer.current) return;
         const handleResize = () => {
             const canvasHeight = innerHeight();
             const windowWidth = window.innerWidth;
@@ -131,11 +141,6 @@ const DisplacementSphere = (props) => {
             renderer.current.setSize(windowWidth, fullHeight);
             camera.current.aspect = windowWidth / fullHeight;
             camera.current.updateProjectionMatrix();
-
-            // Render a single frame on resize when not animating
-            if (prefersReducedMotion) {
-                renderer.current.render(scene.current, camera.current);
-            }
 
             if (windowWidth <= media.mobile) {
                 sphere.current.position.x = 14;
@@ -155,9 +160,10 @@ const DisplacementSphere = (props) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [prefersReducedMotion]);
+    }, []);
 
     useEffect(() => {
+        if (!renderer.current) return;
         const stopTweens = () => {
             tweenRef.current.forEach((tween) => tween.stop());
             tweenRef.current = [];
@@ -211,7 +217,7 @@ const DisplacementSphere = (props) => {
             ];
         };
 
-        if (!prefersReducedMotion && isInViewport) {
+        if (isInViewport) {
             window.addEventListener("mousemove", onMouseMove);
         }
 
@@ -219,9 +225,10 @@ const DisplacementSphere = (props) => {
             window.removeEventListener("mousemove", onMouseMove);
             stopTweens();
         };
-    }, [isInViewport, prefersReducedMotion]);
+    }, [isInViewport]);
 
     useEffect(() => {
+        if (!renderer.current) return;
         let animation;
 
         const animate = () => {
@@ -236,7 +243,7 @@ const DisplacementSphere = (props) => {
             renderer.current.render(scene.current, camera.current);
         };
 
-        if (!prefersReducedMotion && isInViewport) {
+        if (isInViewport) {
             animate();
         } else {
             renderer.current.render(scene.current, camera.current);
@@ -245,7 +252,7 @@ const DisplacementSphere = (props) => {
         return () => {
             cancelAnimationFrame(animation);
         };
-    }, [isInViewport, prefersReducedMotion]);
+    }, [isInViewport]);
 
     return (
         <Transition
@@ -268,6 +275,32 @@ const DisplacementSphere = (props) => {
             )}
         </Transition>
     );
+};
+
+const DisplacementSphere = (props) => {
+    const { theme } = useContext(ThemeContext);
+    const prefersReducedMotion = usePrefersReducedMotion();
+    const [unavailable, setUnavailable] = useState(false);
+
+    if (prefersReducedMotion || unavailable) {
+        return (
+            <picture aria-hidden="true">
+                <source
+                    media="(max-width: 900px)"
+                    srcSet={`/backgrounds/sphere-mobile-${theme}.webp`}
+                />
+                <img
+                    key={theme}
+                    className="displacement-sphere displacement-sphere--fallback"
+                    src={`/backgrounds/sphere-desktop-${theme}.webp`}
+                    alt=""
+                    onError={(event) => { event.currentTarget.style.visibility = "hidden"; }}
+                />
+            </picture>
+        );
+    }
+
+    return <AnimatedSphere {...props} onUnavailable={setUnavailable} />;
 };
 
 export default DisplacementSphere;

@@ -14,11 +14,39 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Build And Deploy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --engine-strict
+      - name: Build
+        run: npm run build
+      - name: Include routing configuration
+        run: cp staticwebapp.config.json build/staticwebapp.config.json
+      - name: Install test browser
+        run: npx playwright install --with-deps chromium
+      - name: Test production build
+        run: npm test
+        env:
+          TEST_PRODUCTION: 'true'
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-test-results
+          path: |
+            test-results/
+            screenshots/checks/
+          retention-days: 7
+      - name: Deploy verified build
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
@@ -27,9 +55,11 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
+          app_location: "build"
           api_location: "" # Api source code path - optional
-          output_location: "build" # Built app content directory - optional
+          output_location: ""
+          skip_app_build: true
+          skip_api_build: true
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -43,3 +73,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_MUD_0D672FB1E }}
           action: "close"
+          app_location: "/"

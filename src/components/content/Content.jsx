@@ -13,7 +13,8 @@ export const Content = () => {
                 marginTop: "auto",
                 marginBottom: "auto",
                 [muiTheme.breakpoints.down("md")]: {
-                    marginLeft: muiTheme.spacing(4),
+                    paddingLeft: muiTheme.spacing(6),
+                    paddingRight: muiTheme.spacing(6),
                 },
             })}
         >

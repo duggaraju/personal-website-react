@@ -7,7 +7,7 @@
         "picture": "pd.png",
         "x_title": "Hey, I'm",
         "job": "Software Engineer and Video Developer",
-        "description": "Hey, I'm Prakash Duggaraju, a Software Engineer based in Washington, USA. Love !",
+        "description": "I'm Prakash Duggaraju, a software engineer and video developer based in Washington, USA.",
         "summary": "",
         "keywords": "personal,website,portfolio,github,linkedin",
         "url": "/resume",
@@ -64,7 +64,7 @@
         "type": "text",
         "icon": "usertie",
         "title": "Profile",
-        "content": "A vidoe enginner and a full stack developer from Seattle, US.  Love learning new skills and solving interesting problems in building scalable distributed systems. Having fun doing it and at the same time hoping to make the world a better place"
+        "content": "I'm a video engineer and full-stack developer based in Seattle, USA. I enjoy learning new skills and solving challenging problems while building scalable distributed systems. I aim to make a positive impact through my work."
     },
     "experience": {
         "type": "projects-list",
@@ -73,7 +73,7 @@
         "groups": [
             {
                 "sectionHeader": "Microsoft Corporation",
-                "description": " Principal Software Engineer (2005 - Present)",
+                "description": "Principal Software Engineer (2005 - Present)",
                 "company": "Microsoft Corporation",
                 "position": "Principal Software Engineer",
                 "website": "https://microsoft.com",
@@ -87,33 +87,33 @@
                     {
                         "title": "Microsoft Content Integrity",
                         "projectUrl": "https://contentintegrity.microsoft.com",
-                        "description": "It is an implementation of the Coalition for Content Provenance and Authenticity [c2pa](https://c2pa.org) specification providing ability to verify as well as sign contents for authenticity"
+                        "description": "An implementation of the Coalition for Content Provenance and Authenticity (C2PA) specification for signing content and verifying its provenance."
                     },
                     {
                         "title": "Azure Media Services",
                         "projectUrl": "https://azure.microsoft.com/en-us/products/media-services/",
-                        "description": "Azure Media Services offers broadcast-quality video streaming services to reach larger audiences on today’s most popular mobile devices. With features that enhance accessibility, distribution, and scalability, Media Services makes it easy and cost-effective to stream your content to audiences both locally and worldwide, all while protecting your content."
+                        "description": "A platform for broadcast-quality video streaming, with features for accessibility, content protection, distribution, and scalability across devices and global audiences."
                     },
                     {
                         "title": "Azure Video Analyzer",
                         "projectUrl": "https://learn.microsoft.com/en-us/azure/azure-video-analyzer/video-analyzer-docs/",
-                        "description": "Azure Video Analyzer, helps developers quickly build an AI-powered video analytics solution to extract actionable insights from videos. Organizations can enhance workplace safety, in-store experiences, digital asset management, media archives, and more by understanding audio and visual video content without video or ML expertise."
+                        "description": "A platform for building AI-powered video analytics solutions that extract actionable insights from video, with applications in workplace safety, retail experiences, digital asset management, and media archives."
                     },
                     {
                         "title": "IIS Media Services",
                         "projectUrl": "https://www.iis.net/media",
-                        "description": "IIS Media Services, is an integrated HTTP-based media delivery platform, delivers HD live and on-demand streaming, DVR functionality, to computers, TVs, and mobile devices. By offering a complete multi-format media delivery platform and a proven web server, highly immersive websites can be managed from a single web platform."
+                        "description": "An integrated HTTP-based media delivery platform for HD live and on-demand streaming, with DVR functionality for computers, TVs, and mobile devices."
                     },
                     {
                         "title": "Windows Media Services",
                         "projectUrl": "https://en.wikipedia.org/wiki/Windows_Media_Services",
-                        "description": "Microsoft Windows Media Services is an industrial-strength platform for streaming live or on-demand audio and video content over the Internet or an intranet. Windows Media Services is used to configure and manage one or more Windows Media servers that deliver your content to clients."
+                        "description": "A platform for streaming live and on-demand audio and video over the internet or an intranet, with tools for configuring and managing media servers."
                     }
                 ]
             },
             {
-                "sectionHeader": "Oracle India Pvt. Ltd",
-                "description": " Project Lead (1999 - 2005)",
+                "sectionHeader": "Oracle India Pvt. Ltd.",
+                "description": "Project Lead (1999 - 2005)",
                 "company": "Oracle India Pvt. Ltd.",
                 "position": "Project Lead",
                 "website": "https://oracle.com",
@@ -124,7 +124,7 @@
                     {
                         "title": "Oracle Discoverer",
                         "projectUrl": "https://www.oracle.com/technology/products/discoverer/index.html",
-                        "description": "Oracle Discoverer is an intuitive ad-hoc query, reporting, analysis, and Web-publishing tool that empower business users to gain immediate access to information. It enables report builders and analysts to create, modify, and execute ad hoc queries and reports. More casual users can view and navigate through pre-defined reports and graphs. Discoverer provides a business view to hide the complexity of the underlying data structure. It enables you to focus on solving business problems and brings insight to your data."
+                        "description": "A tool for ad hoc queries, reporting, analysis, and web publishing. It enables analysts to create and run queries and reports, while business users can explore predefined reports and graphs without navigating the underlying data structures."
                     }
                 ]
             }
@@ -137,13 +137,13 @@
         "description": "",
         "items": [
             {
-                "title": "M.Tech Computer Science",
+                "title": "M.Tech. in Computer Science",
                 "authority": "University of Hyderabad",
                 "authorityWebSite": "https://uohyd.ac.in",
                 "rightSide": "1997-99",
                 "institution": "University of Hyderabad",
                 "area": "Computer Science",
-                "studyType": "Masters",
+                "studyType": "Master's",
                 "startDate": "2011-01-01",
                 "endDate": "2013-01-01"
             }
@@ -161,10 +161,10 @@
             "Rust",
             "Azure",
             "JavaScript/TypeScript",
-            "Full Stack Development",
+            "Full-Stack Development",
             "Linux",
             "Containers",
-            "Cloud Native Development"
+            "Cloud-Native Development"
         ]
     },
     "languages": {
@@ -194,55 +194,165 @@
         "type": "common-list",
         "title": "Patents",
         "icon": "book",
-        "description": "Patents held",
+        "description": "Patents and published applications",
+        "publicationGrants": {
+            "US-20190342360-A1": "US-11063999-B2",
+            "US-20140269776-A1": "US-10382512-B2",
+            "US-20160360297-A1": "US-10257587-B2",
+            "US-20110083144-A1": "US-9438861-B2",
+            "US-20140050459-A1": "US-9420217-B2",
+            "US-20110080940-A1": "US-9237387-B2",
+            "US-20100235528-A1": "US-8909806-B2",
+            "US-20110307623-A1": "US-8555163-B2",
+            "US-20110083037-A1": "US-8392748-B2"
+        },
+        "source": {
+            "url": "https://ppubs.uspto.gov/basic/",
+            "query": "(Duggaraju).in. AND (Prakash).in.",
+            "checkedAt": "2026-09-17",
+            "inventorNames": ["Prakash Duggaraju", "Krishna Prakash Duggaraju", "Krishna Duggaraju"],
+            "verification": "19 USPTO search-result titles, publication numbers and dates; US-11063999-B2 inventor section checked directly. US-10382512-B2 and US-10257587-B2 cross-checked on Google Patents. US-8621044-B2 retained and cross-checked on Google Patents. All three inventor aliases confirmed by the resume owner. Full document-by-document USPTO refresh interrupted by HTTP 429; portfolio completeness not established."
+        },
         "items": [
+            {
+                "title": "Distributed fragment timestamp synchronization",
+                "authority": "US-11063999-B2",
+                "authorityWebSite": "https://patents.google.com/patent/US11063999B2/en",
+                "rightSide": "2021",
+                "publicationDate": "2021-07-13"
+            },
+            {
+                "title": "Distributed fragment timestamp synchronization",
+                "authority": "US-20190342360-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20190342360A1/en",
+                "rightSide": "2019",
+                "publicationDate": "2019-11-07"
+            },
+            {
+                "title": "Distributed fragment timestamp synchronization",
+                "authority": "US-10382512-B2",
+                "authorityWebSite": "https://patents.google.com/patent/US10382512B2/en",
+                "rightSide": "2019",
+                "publicationDate": "2019-08-13"
+            },
+            {
+                "title": "Integrating continuous and sparse streaming data",
+                "authority": "US-10257587-B2",
+                "authorityWebSite": "https://patents.google.com/patent/US10257587B2/en",
+                "rightSide": "2019",
+                "publicationDate": "2019-04-09"
+            },
+            {
+                "title": "Integrating continuous and sparse streaming data",
+                "authority": "US-20160360297-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20160360297A1/en",
+                "rightSide": "2016",
+                "publicationDate": "2016-12-08"
+            },
             {
                 "title": "Integrating continuous and sparse streaming data",
                 "authority": "US-9438861-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9438861",
-                "rightSide": "2016"
+                "authorityWebSite": "https://patents.google.com/patent/US9438861B2/en",
+                "rightSide": "2016",
+                "publicationDate": "2016-09-06"
             },
             {
                 "title": "Program identifier based recording",
                 "authority": "US-9420217-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9420217",
-                "rightSide": "2016"
+                "authorityWebSite": "https://patents.google.com/patent/US9420217B2/en",
+                "rightSide": "2016",
+                "publicationDate": "2016-08-16"
             },
             {
                 "title": "Low latency cacheable media streaming",
                 "authority": "US-9237387-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8392748",
-                "rightSide": "2016"
-            },
-            {
-                "title": "Program Identifier based Recording",
-                "authority": "US-20140050459-A1",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/20140050459",
-                "rightSide": "2014"
+                "authorityWebSite": "https://patents.google.com/patent/US9237387B2/en",
+                "rightSide": "2016",
+                "publicationDate": "2016-01-12"
             },
             {
                 "title": "Delivering cacheable streaming media presentations",
                 "authority": "US-8909806-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9237387",
-                "rightSide": "2014"
+                "authorityWebSite": "https://patents.google.com/patent/US8909806B2/en",
+                "rightSide": "2014",
+                "publicationDate": "2014-12-09"
             },
             {
-                "title": "Reliable media streaming",
-                "authority": "US-8392748-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8392748",
-                "rightSide": "2013"
+                "title": "Live media processing and streaming service",
+                "authority": "US-20140351871-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20140351871A1/en",
+                "rightSide": "2014",
+                "publicationDate": "2014-11-27"
             },
             {
-                "title": "Smooth streaming client component",
-                "authority": "US-8555163-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8555163",
-                "rightSide": "2013"
+                "title": "Distributed fragment timestamp synchronization",
+                "authority": "US-20140269776-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20140269776A1/en",
+                "rightSide": "2014",
+                "publicationDate": "2014-09-18"
+            },
+            {
+                "title": "Program identifier based recording",
+                "authority": "US-20140050459-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20140050459A1/en",
+                "rightSide": "2014",
+                "publicationDate": "2014-02-20"
             },
             {
                 "title": "Smooth, stateless client media streaming",
                 "authority": "US-8621044-B2",
-                "authorityWebSite": "https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8621044",
-                "rightSide": "2013"
+                "authorityWebSite": "https://patents.google.com/patent/US8621044B2/en",
+                "rightSide": "2013",
+                "publicationDate": "2013-12-31"
+            },
+            {
+                "title": "Smooth streaming client component",
+                "authority": "US-8555163-B2",
+                "authorityWebSite": "https://patents.google.com/patent/US8555163B2/en",
+                "rightSide": "2013",
+                "publicationDate": "2013-10-08"
+            },
+            {
+                "title": "Reliable media streaming",
+                "authority": "US-8392748-B2",
+                "authorityWebSite": "https://patents.google.com/patent/US8392748B2/en",
+                "rightSide": "2013",
+                "publicationDate": "2013-03-05"
+            },
+            {
+                "title": "Smooth streaming client component",
+                "authority": "US-20110307623-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20110307623A1/en",
+                "rightSide": "2011",
+                "publicationDate": "2011-12-15"
+            },
+            {
+                "title": "Low latency cacheable media streaming",
+                "authority": "US-20110080940-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20110080940A1/en",
+                "rightSide": "2011",
+                "publicationDate": "2011-04-07"
+            },
+            {
+                "title": "Reliable media streaming",
+                "authority": "US-20110083037-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20110083037A1/en",
+                "rightSide": "2011",
+                "publicationDate": "2011-04-07"
+            },
+            {
+                "title": "Integrating continuous and sparse streaming data",
+                "authority": "US-20110083144-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20110083144A1/en",
+                "rightSide": "2011",
+                "publicationDate": "2011-04-07"
+            },
+            {
+                "title": "Delivering cacheable streaming media presentations",
+                "authority": "US-20100235528-A1",
+                "authorityWebSite": "https://patents.google.com/patent/US20100235528A1/en",
+                "rightSide": "2010",
+                "publicationDate": "2010-09-16"
             }
         ]
     }

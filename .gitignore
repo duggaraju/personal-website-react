@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+/screenshots
+/test-results
+/playwright-report
 
 # production
 /build

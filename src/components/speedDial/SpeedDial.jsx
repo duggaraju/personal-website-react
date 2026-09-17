@@ -20,13 +20,16 @@ export const SpeedDials = () => {
         <SpeedDialAction
             key={action.network.toLowerCase()}
             icon={<i className={action.x_icon} style={{ color: theme.palette.foreground.default }}></i>}
-            tooltipTitle={action.network}
             onClick={handleClose}
-            FabProps={{
-                component: "a",
-                href: action.url,
-                target: "_blank",
-                rel: "noopener noreferrer",
+            slotProps={{
+                tooltip: { title: action.network },
+                fab: {
+                    component: "a",
+                    href: action.url,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    "aria-label": action.network,
+                },
             }}
         />
     ));

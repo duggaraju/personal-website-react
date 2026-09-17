@@ -36,7 +36,7 @@ export const cleanMaterial = material => {
  */
 export const cleanRenderer = renderer => {
   renderer.dispose();
-  renderer.forceContextLoss();
+  if (!renderer.getContext().isContextLost()) renderer.forceContextLoss();
   renderer = null;
 };
 
